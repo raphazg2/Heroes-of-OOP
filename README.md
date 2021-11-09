@@ -1,3 +1,4 @@
 # Projeto-Integrador
 
-trabalho do n sei oq
+O jogo tem 3 personagem
+grupo tal
