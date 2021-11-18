@@ -5,7 +5,8 @@ public class Personagem {
 	private String nome;
 	private int ataque;
 	private int defesa;
-	private int pontosVida;
+	private double pontosVida;
+	private boolean defendendo;
 	
 	//CONSTRUTOR
 	public Personagem(int ataque, int defesa, int pontosVida, String nome) {
@@ -13,14 +14,15 @@ public class Personagem {
 		this.setDefesa(defesa);
 		this.setPontosVida(pontosVida);
 		this.setNome(nome);
+		this.defendendo = false;
 	}
 
-	public int getPontosVida() {
+	public double getPontosVida() {
 		return pontosVida;
 	}
 	
-	public void setPontosVida(int pontosVida) {
-		this.pontosVida = pontosVida;
+	public void setPontosVida(double d) {
+		this.pontosVida = d;
 	}
 	
 	public int getDefesa() {
@@ -49,5 +51,13 @@ public class Personagem {
 	
 	public int atacar(){
 		return 0;
+	}
+
+	public boolean isDefendendo() {
+		return defendendo;
+	}
+
+	public void setDefendendo(boolean defendendo) {
+		this.defendendo = defendendo;
 	}
 }
