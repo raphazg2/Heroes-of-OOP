@@ -8,7 +8,7 @@ public class Engine {
 	List<Personagem> personagens = new ArrayList<Personagem>();
 	
 	//AQUI FOI INSTANCIADO(CRIADO) UM OBJETO DRAGÃO, QUAL SERA O NOSSO INIMIGO DO JOGO
-	Dragao dragao = new Dragao(10, 30, 300, "DRAGAO");
+	Dragao dragao = new Dragao(60, 30, 300, "DRAGAO");
 	
 	public Engine(){}
 	
@@ -35,6 +35,7 @@ public class Engine {
 			for(Personagem personagemList : personagens) {
 				boolean ataca;
 				if(personagemList.getPontosVida() > 0) {
+					personagemList.setDefendendo(false);
 					System.out.println("1-atacar");
 					System.out.println("2-defender");
 					System.out.println("\n"+personagemList.getNome()+" ESCOLHA UMA AÇÃO: ");
@@ -46,20 +47,24 @@ public class Engine {
 					ataca = (escolha == 1) ? true : false;
 					if(ataca) {
 						dragao.setPontosVida(dragao.getPontosVida()-(personagemList.atacar()-dragao.getDefesa()));
+						System.out.println("vida do Dragão após ataque do " + personagemList.getNome() + ": " + dragao.getPontosVida());
 					}else {
-						//Implementar defesa personagem
+						personagemList.setDefendendo(true);
 					}
 				}
 			}
 				if(dragao.getPontosVida()>0) {
 					int personagemAtacado = random.nextInt(personagens.size());
-					personagens.get(personagemAtacado).setPontosVida(personagens.get(personagemAtacado).getPontosVida()-dragao.getAtaque());
+					if(personagens.get(personagemAtacado).isDefendendo()) {
+						personagens.get(personagemAtacado).setPontosVida(personagens.get(personagemAtacado).getPontosVida()-(dragao.getAtaque()-(personagens.get(personagemAtacado).getDefesa()*1.1)));
+					}else {
+						personagens.get(personagemAtacado).setPontosVida(personagens.get(personagemAtacado).getPontosVida()-(dragao.getAtaque()-personagens.get(personagemAtacado).getDefesa()));
+					}
 					System.out.println(personagens.get(personagemAtacado).getNome() + " foi atacado, vida resultante: " + personagens.get(personagemAtacado).getPontosVida());
 					if(personagens.get(personagemAtacado).getPontosVida()<=0) {
 						System.out.println(personagens.get(personagemAtacado).getNome() + " morreu, seu corpo foi retirado do campo de batalha");
 						personagens.remove(personagemAtacado);
 					}
-					System.out.println("vida do Dragão após turno " + turno + ": " + dragao.getPontosVida());
 				}else {
 					System.out.println("PARABENS VOCE MATOU O DRAGÃO !");
 				}
