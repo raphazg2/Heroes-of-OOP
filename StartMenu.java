@@ -25,6 +25,11 @@ public class StartMenu {
 		    System.out.print("Escolha uma das opções: ");
 		    //PEGA O PROXIMO VALOR INTEIRO QUE O JOGADOR DIGITAR
 		    int escolha = teclado.nextInt();
+		    while (escolha != 1 && escolha != 2 && escolha != 3 && escolha != 4) {
+		    	System.out.println("Opção invalida, tente novamente");
+		    	System.out.print("Escolha uma das opções: ");
+			    escolha = teclado.nextInt();
+		    }
 		    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
 		    //WHILE USADO PARA CRIAR 3 PERSONAGENS
 		    
@@ -38,11 +43,19 @@ public class StartMenu {
 					    System.out.println("3-Arqueiro");
 					    System.out.print("Escolha com sabedoria: ");
 					    int tipoPersonagem = teclado.nextInt();
+					    while (tipoPersonagem != 1 && tipoPersonagem != 2 && tipoPersonagem != 3) {
+					    	System.out.println("Opção invalida, tente novamente");
+					    	System.out.print("Escolha uma das opções: ");
+					    	tipoPersonagem = teclado.nextInt();
+					    }
 					    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
 					    //CHAMA O METODO DA CLASSE "ENGINE" PARA ADICIONAR UM PERSONAGEM NA LISTA DE PERSONAGENS
 					    engine.addPersonagem(createCharacter(tipoPersonagem));
 					    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
 				    	personagensCriados++;
+					}
+					if(personagensCriados == 3) {
+						System.out.println("Voce ja criou seus 3 personagens");
 					}
 					break;
 				}
@@ -80,6 +93,11 @@ public class StartMenu {
 			System.out.println("2-Machado atq +17 def +8");
 			System.out.print("Escolha sua arma: ");
 		    int tipoArma = teclado.nextInt();
+		    while (tipoArma != 1 && tipoArma != 2) {
+		    	System.out.println("Opção invalida, tente novamente");
+		    	System.out.print("Escolha uma das opções: ");
+		    	tipoArma = teclado.nextInt();
+		    }
 			System.out.print("Digite o nome do seu personagem: ");
 			//INSTANCIA O OBJETO PERSONAGEM PARA RETORNAR AO METODO E ADICIONALO A LISTA DE PERSONAGENS
 			Guerreiro guerreiro = new Guerreiro(30, 20, 180, teclado.next());
@@ -92,6 +110,11 @@ public class StartMenu {
 			System.out.println("2-Cajado atq +13 def +12");
 			System.out.print("Escolha sua arma: ");
 		    int tipoArma = teclado.nextInt();
+		    while (tipoArma != 1 && tipoArma != 2) {
+		    	System.out.println("Opção invalida, tente novamente");
+		    	System.out.print("Escolha uma das opções: ");
+		    	tipoArma = teclado.nextInt();
+		    }
 		    System.out.print("Digite o nome do seu personagem: ");
 			Mago mago = new Mago(20, 10, 200, teclado.next());
 			mago.setArma(tipoArma);
@@ -103,6 +126,11 @@ public class StartMenu {
 			System.out.println("2-Balestra atq +15 def +10");
 			System.out.print("Escolha sua arma: ");
 		    int tipoArma = teclado.nextInt();
+		    while (tipoArma != 1 && tipoArma != 2) {
+		    	System.out.println("Opção invalida, tente novamente");
+		    	System.out.print("Escolha uma das opções: ");
+		    	tipoArma = teclado.nextInt();
+		    }
 		    System.out.print("Digite o nome do seu personagem: ");
 			Arqueiro arqueiro = new Arqueiro(20, 30, 160, teclado.next());
 			arqueiro.setArma(tipoArma);
