@@ -46,4 +46,8 @@ public class Guerreiro extends Personagem{
 		int dano = super.getAtaque() + arma.getAtaque();
 		return dano;
 	}
+	
+	public int getDefesa() {
+		return super.getDefesa() + arma.getDefesa();
+	}
 }
