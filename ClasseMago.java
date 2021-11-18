@@ -46,4 +46,8 @@ public class Mago extends Personagem{
 		int dano = super.getAtaque() + arma.getAtaque();
 		return dano;
 	}
+	
+	public int getDefesa() {
+		return getDefesa()+arma.getDefesa();
+	}
 }
